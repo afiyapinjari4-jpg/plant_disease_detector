@@ -183,6 +183,12 @@ body {
   margin-top: 4px;
 }
 
+.history-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
 .btn {
   font-family: var(--font-family);
   font-weight: 700;
@@ -202,6 +208,20 @@ body {
 
 .btn-outline:hover {
   border-color: var(--accent-green);
+}
+
+.btn-clear-history {
+  background: rgba(239, 68, 68, 0.12);
+  color: var(--danger-red);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  padding: 9px 20px;
+  font-size: 13px;
+}
+
+.btn-clear-history:hover {
+  background: rgba(239, 68, 68, 0.22);
+  border-color: var(--danger-red);
+  transform: translateY(-1px);
 }
 
 /* =========================================
@@ -258,7 +278,7 @@ body {
 }
 
 /* =========================================
-   2. SCAN PLANT VIEW (Clean Single Column Dropzone)
+   2. SCAN PLANT VIEW
    ========================================= */
 .intake-layout-full {
   max-width: 900px;

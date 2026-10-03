@@ -15,7 +15,7 @@ from google.genai.errors import APIError
 
 load_dotenv()
 
-app = FastAPI(title="PlantVision AI Core Engine", version="7.0.0")
+app = FastAPI(title="PlantVision AI Core Engine", version="7.1.0")
 
 app.add_middleware(
     CORSMiddleware,
@@ -119,6 +119,11 @@ def get_history():
             "plant_distribution": plant_counts
         }
     }
+
+@app.delete("/history")
+def clear_history():
+    SCAN_HISTORY.clear()
+    return {"success": True, "message": "Scan history cleared successfully"}
 
 @app.post("/diagnose")
 async def diagnose(file: UploadFile = File(...)):

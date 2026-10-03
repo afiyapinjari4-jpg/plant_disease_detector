@@ -54,7 +54,7 @@
       </div>
     </section>
 
-    <!-- 2. SCAN VIEW (Upload Intake, Progress Animation, & Diagnosis Result) -->
+    <!-- 2. SCAN VIEW -->
     <section id="view-scan" class="view-panel">
       <!-- 2A. UPLOAD / INTAKE STATE -->
       <div id="state-intake">
@@ -263,11 +263,16 @@
       </div>
     </section>
 
-    <!-- 5. DEDICATED SCAN HISTORY PAGE -->
+    <!-- 5. DEDICATED SCAN HISTORY PAGE (With Clear History Button) -->
     <section id="view-history" class="view-panel">
-      <div class="panel-header">
-        <h2>Scan History Audit Trail</h2>
-        <p>Chronological audit log of all botanical specimens scanned and diagnosed.</p>
+      <div class="panel-header history-header-row">
+        <div>
+          <h2>Scan History Audit Trail</h2>
+          <p>Chronological audit log of all botanical specimens scanned and diagnosed.</p>
+        </div>
+        <button class="btn btn-clear-history" id="btn-clear-history">
+          🗑️ Clear History
+        </button>
       </div>
 
       <div class="telemetry-table-card">

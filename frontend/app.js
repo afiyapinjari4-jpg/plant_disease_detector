@@ -104,6 +104,12 @@ document.addEventListener('DOMContentLoaded', () => {
   setupDropzone();
   renderDiseaseGuide();
   fetchDynamicTelemetry();
+
+  // Attach Clear History button listener
+  const btnClear = document.getElementById('btn-clear-history');
+  if (btnClear) {
+    btnClear.addEventListener('click', clearDynamicHistory);
+  }
 });
 
 // Top Navigation Setup
@@ -505,6 +511,27 @@ async function fetchDynamicTelemetry() {
 
   } catch (err) {
     console.warn('Could not fetch dynamic telemetry:', err);
+  }
+}
+
+// Clear History Functionality
+async function clearDynamicHistory() {
+  if (!confirm("Are you sure you want to clear all scan history and analytics data?")) {
+    return;
+  }
+
+  try {
+    const res = await fetch(`${BACKEND_URL}/history`, {
+      method: 'DELETE'
+    });
+    if (res.ok) {
+      fetchDynamicTelemetry();
+    } else {
+      alert("Failed to clear history on the server.");
+    }
+  } catch (err) {
+    console.error("Error clearing history:", err);
+    alert("Could not reach backend to clear history.");
   }
 }
 
